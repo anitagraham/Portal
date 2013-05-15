@@ -1,0 +1,26 @@
+<div class="index_page">
+	<%= content_tag :h1, "Ecohydrology Locations", :class => 'ui-widget-header ui-corner-all'%>
+  <div  id="actions" class="clearfix">
+  	<%= render :partial => "shared/action", :locals => 
+  		{ :action => 'new', 
+  			:label => 'New', 
+  			:title => 'Create Location',
+  			:fmt => 'js'}
+		 %>
+  </div>
+
+	<table id="locations" class="data_table">
+		<thead>
+			<tr>
+				<th>Edit</th>
+				<th>Delete</th>
+				<% Location::INDEX_FIELDS.each do |i| %>
+					<%= content_tag :th, i %>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<%= render :partial => "location", :collection => @locations%>
+		</tbody>
+	</table>
+</div>

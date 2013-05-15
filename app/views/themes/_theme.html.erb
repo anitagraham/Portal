@@ -1,0 +1,18 @@
+<tr>
+	<td>
+  	<%= render :partial => "shared/action",
+  	 :locals =>	{
+  	 	 	:action => 'edit',
+  		 	:id => theme.id, 
+  			:label => 'Edit', 
+  			:title => 'Edit Theme',
+  			:fmt => 'js'}
+		 %>
+	</td>  <td><%= link_to image_tag("delete-item.png"), { :action => "destroy", :id => theme.id },
+          :data => { :confirm => 'Are you sure?' }, :method => :delete, :class=> :delete %> </td>
+          
+  <% Theme::INDEX_FIELDS.each do |i| %>
+  	<%= content_tag :td, theme.send(i) %>
+  <% end%>
+</tr>
+

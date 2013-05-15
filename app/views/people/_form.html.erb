@@ -1,0 +1,100 @@
+<div id="editTabs" class="clearfix">
+	<ul>
+		<li>
+			<a href="#personal">Personal Details</a>
+		</li>
+		<li>
+			<a href="#biography">Biography</a>
+		</li>
+		
+		<% if @object.publications.recent %>
+			<li>
+				<a href="#publications">Publications</a>
+			</li>
+		<%end%>
+		
+		<li>
+			<a href="#tags">Tags</a>
+		</li>
+		
+	</ul>
+	
+	<div id="personal">
+		<fieldset class="fs_photo">
+			<%= image_tag @object.portrait, :class=>:photo if @object.photo_uid %>
+			<%= label  :person, :photo, "Upload a photo", :class=>"incontent"%>
+			<%= f.file_field :photo %>
+		</fieldset>
+	
+
+		<%= label :person, :Firstname, :Firstname, :class =>"incontent" %>
+		<%= f.text_field :Firstname, :value => @object.Firstname, :size => 20, :class=>'title' %>
+		<%= label :person, :Surname, :Surname, :class=>"incontent" %>
+		<%= f.text_field :Surname, :value => @object.Surname, :size => 20, :class=>'title' %>
+		<%= label :person, :Position, :Position, :class=>"incontent" %>
+		<%= f.text_field :Position, :value => @object.Position%>
+		<p>
+			<%= label :person, :Profile, "Link to Profile", :class=>"incontent" %>
+			<%= f.text_field :Profile, :value => @object.Profile, :size=>100 %>
+		</p>
+	
+		<fieldset class="fs_role">
+			<legend>
+				Role and work Status
+			</legend>
+			<% roles_select = Person::ROLES
+				 statuses_select = Person::STATUSES %>
+			<% roles_select.each do |role| %>
+				<%= radio_button 'person', :Role, role, :checked=> @object.Role==role %>
+				<%= label 'person', :Role, role.to_s.humanize, :value => role.to_s%>
+			<% end %>
+			<br>
+			<% statuses_select.each do |stat| %>
+				<%= radio_button 'person', :Status, stat, :checked=> @object.Status==stat %>
+				<%= label 'person', :Status, stat.to_s.humanize, :value => stat.to_s%>
+			<% end %>
+		</fieldset>
+	
+		<fieldset class="fs_contact">
+			<legend>
+				Contact Details
+			</legend>
+			<%= label :person, :location_id, "Location", :class=>"incontent" %>
+			<%= select_tag 'person[location_id]',
+			options_from_collection_for_select(Location.find(:all), :id, :Name, @object.location_id),
+			:class=>:dropdown %>
+	
+			<%= label :person, :Email, :Email, :class=>"incontent" %>
+			<%= f.text_field :Email, :value => @object.Email%>
+			<%= label :person, :Phone, :Phone, :class=>"incontent" %>
+			<%= f.text_field :Phone, :value => @object.Phone, :size => 10 %>
+			<%= label :person, :Mobile, :Mobile, :class=>"incontent" %>
+			<%= f.text_field :Mobile, :value => @object.Mobile, :size=>10%>
+		</fieldset>
+	</div>
+	
+	<div id="biography">
+		<fieldset class="fs_blurb">
+			<%= label :person, :blurb, "Biography", :class=>"incontent" %>
+			<%= f.text_area :blurb, :value => @object.blurb, :size => "60x10" %>
+		</fieldset>
+	</div>
+	
+	<div id="publications">
+		<% if @object.publications.recent %>
+	
+		<fieldset class="fs_publications">
+	
+			<legend>
+				Publications since <%= Time.now.year-5%>
+			</legend>
+			<%= render :partial => 'shared/publication', :collection=>@object.publications.recent  %>
+		</fieldset>
+	
+		<%end%>
+	</div>
+	
+	<div id="tags">
+		<%= render :partial => 'shared/tagSet', :locals => {:object=>@object, :name=>@object.Name} %>
+	</div>
+</div>

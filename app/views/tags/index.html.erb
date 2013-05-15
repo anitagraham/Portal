@@ -1,0 +1,24 @@
+<div id="messages"></div>
+
+<div class="index_page">
+	<%= content_tag :h1, "Ecohydrology Tags", :class => 'ui-widget-header ui-corner-all'%>
+
+  <div  id="actions" class="clearfix">
+  	<%= render :partial => "shared/action", :locals => { action: 'new', title: 'Create New Tag'} %>
+  </div>
+
+	<table id="tags" class="data_table">
+		<thead>
+			<tr>
+				<th>Edit</th>
+				<th>Delete</th>
+				<% Tag::INDEX_FIELDS.each do |i| %>
+					<%= content_tag :th, i %>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<%= render :partial => "tag", :collection => @tags %>
+		</tbody>
+	</table>
+</div>

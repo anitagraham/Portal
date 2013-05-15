@@ -1,0 +1,20 @@
+
+<% objects = %w(people projects publications news_items news_links news_sources tags locations users) %>
+
+<div class="ui-widget">
+  <h1 class="ui-widget-header">ECOPORT - Ecohydrology Data Maintenance</h1>
+  <h2 class="vertical <%=Rails.env%>"><%=Rails.env.capitalize%></h2>
+	<div id="messages" class="flash"></div>
+
+  <div class="tabs <%=Rails.env%>" id="indexTabs">
+    <ul>
+    	<% objects.each do |o| %>
+        <li>
+            <%= link_to o.humanize, "#{o}.html", :title=>"index", :id=>o %>
+        </li>
+			<%end%>
+    </ul>
+  </div>
+	<div id="editDialog"></div>
+</div>
+

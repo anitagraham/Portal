@@ -1,0 +1,17 @@
+<%
+button_classes = 'nav-button ui-corner-all '
+  case button[0]
+    when :submit
+      button_classes += 'ui-priority-primary ui-state-active' %>
+      <%= submit_tag button[1][:label], :class=> button_classes %>
+<%    when :delete 
+      button_classes += 'ui-priority-secondary ui-state-highlight' %>
+      <%= button_to 'Delete',  :method => :delete, :id=>params[:id], :class=> button_classes %>     
+<%    else
+      button_classes += 'ui-priority-secondary ui-state-default' %>
+      <%if :function %>
+        <%= button_to_function button[1][:label], button[1][:function], :class => button_classes %>
+      <%else%>
+        <%= button_to_function button[1][:label], "parent.location='" + button[1][:path] + "'",  :class => button_classes %>
+      <%end%>     
+<%  end %>

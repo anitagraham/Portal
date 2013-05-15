@@ -1,0 +1,15 @@
+<% 
+ one = params[:controller].singularize
+ @buttons = {
+    :delete=> {:label=>:Delete, :class=>"DeleteItem"},
+    :close => {:label => "Close", :class=>"closeEditDialog"},
+    :submit=> {:label => "Update"}
+ }
+%>
+
+<%= form_for(@object,  :remote=>true)  do |f| %>
+  <%= raw ujsToolbar 'top', @buttons %>
+  <%= render :partial => 'form', :locals => {:f => f }%>
+  <%= raw ujsToolbar 'bottom',@buttons %>
+
+<%end %>  <!-- form_for    -->

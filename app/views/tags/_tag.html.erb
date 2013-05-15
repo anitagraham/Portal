@@ -1,0 +1,20 @@
+<tr class=<%= tag.status %>>
+
+	<td>
+  	<%= render :partial => "shared/action",
+  	 :locals =>	{
+  	 	 	:action => 'edit',
+  		 	:id => tag.id, 
+  			:label => 'Edit', 
+  			:title => 'Edit Tag',
+  			:fmt => 'js'}
+		 %>
+	</td>
+  <td><%= link_to image_tag("delete-item.png"), { :action => "destroy", :id => tag.id },
+          :data => { :confirm => 'Are you sure?' }, :method => :delete, :class=> :delete %> </td>
+          
+  <% Tag::INDEX_FIELDS.each do |i| %>
+  	<%= content_tag :td, tag.send(i) %>
+  <% end%>
+</tr>
+

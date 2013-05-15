@@ -1,0 +1,19 @@
+<tr class="<%= publication.type%> <%= publication.untagged ? 'untagged' : '' %>">
+	
+	<td>
+  	<%= render :partial => "shared/action",
+  	 :locals =>	{
+  	 	 	:action => 'edit',
+  		 	:id => publication.id, 
+  			:label => 'Edit', 
+  			:title => 'Edit Publication',
+  			:fmt => 'js'}
+		 %>
+	</td>
+  	<td><%= link_to image_tag("delete-item.png"), { :action => "destroy", :id => publication.id },
+          :data => { :confirm => 'Are you sure?' }, :method => :delete, :class=> :delete %>
+  </td>
+  <% Publication::INDEX_FIELDS.each do |i| %>
+  	<%= content_tag :td, publication.send(i) %>
+  <% end%>
+</tr>

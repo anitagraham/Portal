@@ -1,0 +1,68 @@
+h1, h2, h3, h4, h5, h6 {
+    font-family: $headerFont;
+    color: #4E443C;
+/*    font-variant: small-caps;*/
+    text-transform: none;
+    font-weight: 100;
+    margin-bottom: 0;
+}
+h1 {padding:0.5em;}
+p, td {
+    font-family: $textFont;
+    font-size: 14px;
+    margin-top: .5em;
+    color: #666;
+   padding: 0 0 1em 0;
+    color: #111;
+}
+
+p.first {
+    font-family: $headerFont;
+    font-size: .8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+body {
+    font-size: 75%;
+	line-height:1.5em;
+}
+
+
+p img {
+/*    float: left;
+    margin: 0.3em 0.833em 0.833em 0; */
+    padding: 0;
+}
+
+p img.right {
+    float: right;
+    margin: 0.3em 0 0.833em 0.833em;
+}
+
+
+h1 {
+    font-size: 2.2em;
+    margin-bottom: 0.682em;
+}
+
+h2 {
+    font-size: 1.9em;
+    margin-bottom: 0.79em;
+}
+
+h3 {
+    font-size: 1.7em;
+    margin-bottom: 0.882em;
+}
+
+h4 {
+    font-size: 1.4em;
+    margin-bottom: 1.071em;
+}
+
+h5, h6 {
+    font-size: 1.3em;
+    margin-bottom: 1.154em;
+}

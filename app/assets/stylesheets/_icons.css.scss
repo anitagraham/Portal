@@ -1,0 +1,24 @@
+.icon{
+  color:cyan;
+  &:hover {color:green}
+
+  .Edit {
+    @extend .foundicon-edit;
+  }
+  .New {
+    @extend .foundicon-plus;
+  }
+  .Delete {
+    @extend .foundicon-remove;
+    color:orange;
+    &:hover {color:red}
+  }
+  .Disable {
+    @extend .foundicon-minus;
+    &:hover {color:grey}  
+  }
+  .Enable {
+    @extend .foundicon-plus;
+    color: grey
+  }
+}

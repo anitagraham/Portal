@@ -1,0 +1,7 @@
+<div id="ts_People" class="multi hidden">
+  <%= f.collection_select(
+  	:person_ids,
+  	Person.has_status("Active"), :id, :Name,
+  	{:selected=>@object.people.collect{|p| p.id}},
+    {:multiple=>true,:class=>'multiselect', :size=>20}) %>
+</div>

@@ -1,0 +1,30 @@
+<%
+	status = user.disabled ? "Disabled" : "Enabled"
+	action = user.disabled ? "enable" : "disable"
+%>
+<tr class="<%=status%>" id = "User_<%=user.id%>">
+	<td>
+  	<%= render :partial => "shared/action_font",
+  	 :locals =>	{
+  	 	 	:action => 'edit',
+  		 	:id => user.id, 
+  			:title => "Edit #{user.Name}",
+  			:fmt => 'js'}
+		 %>
+	</td>  
+	<td>
+		
+  	<%= render :partial => "shared/action_font",
+  	 :locals =>	{
+  	 	 	:action => action,
+  		 	:id => user.id, 
+  			:method => 'put',
+  			:fmt => 'js'}
+		 %>
+	</td>
+        
+  <% User::INDEX_FIELDS.each do |i| %>
+  	<%= content_tag :td, user.send(i) %>
+  <% end%>
+</tr>
+

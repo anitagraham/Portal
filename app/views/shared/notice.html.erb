@@ -1,0 +1,10 @@
+<div class="RailsMessage">
+<% flash.each do |key, msg| %>
+<%= content_tag :div, :class => "flash ui-widget ui-widget-content ui-state-highlight ui-corner-all", :id => key do %>
+       <%= msg %> 
+       <%= link_to_function image_tag('cancel-24.png',:class=>'close-window'), "$('##{key}').css('display','none');" %>
+       
+    <% end %>
+
+<% end %>
+</div>

@@ -1,0 +1,27 @@
+<% formfieldname = object.class.model_name.underscore %>
+<fieldset class="tagging cf">
+	<legend>
+		Select Tags
+	</legend>
+	<% Tag.themes.each do |th| %>
+	<fieldset class="theme">
+		<legend><%=th.Title%></legend>
+		<% th.subthemes.each do |t| %>
+			<p>
+				<%= check_box_tag "#{formfieldname}[tag_list][#{t.id}]", "1", object.tags.detect {|d| d==t}%>
+				<%= label_tag "#{formfieldname}[tag_list][#{t.id}]" ,t.Title%>
+			</p>
+		<%end%>
+	</fieldset>
+	<%end%>
+	<fieldset class="theme">
+		<legend>Not in a theme</legend>
+		<% Tag.orphan.each do |t| %>
+			<p>
+				<%= check_box_tag "#{formfieldname}[tag_list][#{t.id}]", "1", object.tags.detect {|d| d==t}%>
+				<%= label_tag "#{formfieldname}[tag_list][#{t.id}]" ,t.Title%>
+			</p>
+		<%end%>
+	</fieldset>
+</fieldset>
+

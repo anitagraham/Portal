@@ -1,0 +1,48 @@
+<div id="editTabs" class="clearfix">
+	<ul>
+		<li>
+			<a href="#project">Project Details</a>
+		</li>
+		<li>
+			<a href="#staff">Staff Links</a>
+		</li>
+		<li>
+			<a href="#tags">Tags</a>
+		</li>
+
+	</ul>
+
+	<div id="project">
+
+		<p>
+			<%= label :project, :Title, :Title.to_s.humanize, :class=>"incontent" %>
+			<%= f.text_field :Title, :size=>'80', :class=>'title' %>
+		</p>
+		<p>
+			<%= label :project, :link, :link.to_s.humanize, :class=>"incontent" %>
+			<%= f.text_field :link , :size=>'80'%>
+			<%= link_to image_tag('new-window.png')+'View',@object.link, :target=>'_blank' %>
+		</p>
+		<p>
+			<%= label :project, :Description, :Description.to_s.humanize, :class=>"incontent" %>
+			<%= f.text_area :Description , :rows =>10, :cols=>'80', :class=>'countable' %>
+		</p>
+		<fieldset>
+			<legend>
+				Status
+			</legend>
+			<% Project::STATUS.each do |stat| %>
+			<%= radio_button 'project', :Status, stat, :checked=> @object.Status==stat %>
+			<%= label 'project', :Status, stat.to_s.humanize, :value => stat.to_s%>
+			<% end %>
+		</fieldset>
+		<br />
+
+	</div>
+	<div id="staff">
+				<%= render :partial => 'shared/staffLinks', :locals=>{:f=>f, :object=>@object}%>
+	</div>
+	<div id="tags">
+		<%= render :partial => 'shared/tagSet', :locals => {:object=>@object, :name=>@object.Title} %>
+	</div>
+</div>

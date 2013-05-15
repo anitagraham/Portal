@@ -1,0 +1,38 @@
+.Journal {
+  background-color:$Journal;
+  // color:white;
+}
+.Book {
+  background-color:$Book;
+  // color:white;
+}
+.Chapter {
+  background-color:$Book;
+  // color:white;
+}
+.Conference {
+  background-color:$Conference;
+}
+.Keynote {
+  background-color:$Keynote;
+}
+.Report {
+  background-color:$Report;
+}
+.Technical {
+  background-color:$Technical;
+}
+
+fieldset.fs_publications {
+  font-size:0.75em;
+  legend {font-size:2em;}
+  ol {list-style-type:decimal}
+}
+
+span.title {
+  font-weight:bold
+}
+
+.untagged {
+  border: 1px dotted red
+}

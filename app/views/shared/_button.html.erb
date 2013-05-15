@@ -1,0 +1,29 @@
+<!--set up the defaults  An ACTION parameter is required-->
+<% id = "" if local_assigns[:id].nil? %>
+<% fmt = "js" if local_assigns[:fmt].nil? %>
+<% method = "get" if local_assigns[:method].nil? %>
+
+<%= form_tag(
+			{:action => action,	:format => fmt,	:id=>id},
+			:method=>method,
+			:remote => fmt=='js',
+			:class=>:button,	
+			:id => "#{action}_#{id}")  do %>
+			
+<%    if local_assigns.has_key? :title %>
+<%=     hidden_field_tag :title, title %>	
+<%    end%>
+
+<%=		button_tag action.titleize,  :class=> "ui-icon #{action}"  %>
+
+<%		if local_assigns.has_key? :select_fields
+				select_fields.each_with_index do |sf, ix|
+%>
+<%=				select 	:filter, 
+					:'sf', 
+					select_from[ix],	
+					{:include_blank => false},
+					:class=>'dropdown' %>
+<%			end
+			end 
+  end %>

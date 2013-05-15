@@ -1,0 +1,16 @@
+<%if @object.people.count >0 %>
+<span class="staffLinks">
+  <b>Staff links:</b>
+  <% @object.people.each do |p| %>
+  <%= link_to p.Name, p.Profile %>&nbsp;
+  <%end %>
+</span>
+<%end%>
+<div class="clearfix">
+  <%= f.collection_select(
+		:person_ids,
+    Person.all,
+    :id, :Name,
+    {:selected=>@object.people.collect{|p| p.id}},
+    {:multiple=>true,:class=>'multiselect', :size=>20}) %>
+</div>

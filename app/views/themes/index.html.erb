@@ -1,0 +1,27 @@
+<div id="messages"></div>
+
+<div class="index_page">
+	<%= content_tag :h1, "Ecohydrology Themes", :class => 'ui-widget-header ui-corner-all'%>
+  <div  id="actions" class="clearfix">
+  	<%= render :partial => "shared/action", :locals => 
+  		{ :action => 'new', 
+  			:label => 'New', 
+  			:fmt => 'js'}
+		 %>
+  </div>
+
+	<table id="themes" class="data_table">
+		<thead>
+			<tr>
+				<th>Edit</th>
+				<th>Delete</th>
+				<% Theme::INDEX_FIELDS.each do |i| %>
+					<%= content_tag :th, i %>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<%= render :partial => "theme", :collection => @themes%>
+		</tbody>
+	</table>
+</div>

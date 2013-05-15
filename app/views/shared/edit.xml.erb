@@ -1,0 +1,16 @@
+<% one = params[:controller].singularize %>
+<% @buttons = {
+    :submit=>  {:label => "Save"},
+    :return => {:label => "Close", :function => "$('div#edit-dialog-#{one}').dialog('close');"}
+}
+%>
+
+<%= form_for(@object, :remote=> true)  do |f| %>
+  <%= raw toolbar 'top',@buttons, nil %>
+
+  <%= render :partial => 'shared/header' %>
+
+  <%= render :partial => 'form', :locals => {:f => f }%>
+
+<%end %>  <!-- form_for    --> 
+

@@ -1,0 +1,3 @@
+<%if @people.any? then%>
+			<%= raw peopleObj(@people, true).to_json %>
+<%end%>

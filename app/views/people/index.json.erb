@@ -1,0 +1,18 @@
+{"people":[
+	<% @people.each do |p| %>
+	{
+		"Name": "<%= p.Name %>",
+		"id":"<%=p.id%>",
+		"email": "<%= p.Email %>",
+		"location": "<%=p.location%>",
+		"position": "<%=p.Position%>",
+		"phone": "<%=p.Phone%>",
+		"mobile": "<%=p.Mobile%>",
+		"profile": "<%=p.Profile%>",
+		"photo":"<%= p.photo.url%>",
+		"thumb":"<%= p.photo.thumb('100x100').url%>",
+		"Tags":[<%for t in p.tags do%> {"tag":"<%=t.Name%>"}, <%end%>]
+	},
+	<%end%>
+	]
+}

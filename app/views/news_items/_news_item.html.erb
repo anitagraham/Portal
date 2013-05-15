@@ -1,0 +1,19 @@
+<tr>
+	<td>
+  	<%= render :partial => "shared/remote_action",
+  	 :locals =>	{
+  	 	 	:action => 'edit',
+  		 	:id => news_item.id, 
+  			:label => 'Edit', 
+  			:title => 'Edit News Item'
+  			}
+		 %>
+	</td>
+  <td><%= link_to image_tag("delete-item.png"), { :action => "destroy", :id => news_item.id },
+          :data => { :confirm => 'Are you sure?' }, :method => :delete, :class=> :delete %> </td>
+          
+  <% NewsItem::INDEX_FIELDS.each do |i| %>
+  	<%= content_tag :td, news_item.send(i) %>
+  <% end%>
+</tr>
+

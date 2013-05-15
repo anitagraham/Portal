@@ -1,0 +1,48 @@
+<%= hidden_field_tag 'kind', @object.class.name %>
+<div id="editTabs" class="clearfix">
+	<ul>
+		<li>
+			<a href="#pub">Publication Details</a>
+		</li>
+		<li>
+			<a href="#tags">Tags</a>
+		</li>
+	</ul>  
+
+	<div id="pub">  
+	  <p>
+	      <%= label :publication, :Title, :Title, :class=>"incontent" %>
+	      <%= f.text_area :Title, :size=>'100x3', :class=>'title' %>
+	  </p>
+	 
+    <p>
+      <%= label :publication, :Authors, :Authors, :class=>"incontent" %>
+      <%= f.text_field :Authors, :size=>'80' %>
+      <%= label :publication, :Year, :Year, :class=>"incontent" %>
+      <%= f.text_field :Year, :size=>'4' %>  
+      <br />
+      <%if @object.people.count >0 %>
+      <span class="staffLinks">
+          <b>Staff links:</b>
+          <% @object.people.each do |p| %>
+          <%= link_to p.Name, p.Profile %>&nbsp;
+          <%end %>
+      </span>
+      <%end%>
+   </p>
+   	<div class="clearfix">
+		  <%= f.collection_select(
+  			:person_ids,
+	      Person.all,
+	      :id, :Name,
+	      {:selected=>@object.people.collect{|p| p.id}},
+	      {:multiple=>true,:class=>'multiselect', :size=>20}) %>
+		</div>
+
+	  <%= render :partial => "publications/types/#{@object.type.to_s.downcase}", :locals=>{:f=>f}  %>
+
+  </div>
+	<div id="tags">
+		<%= render :partial => 'shared/tagSet', :locals => {:object=>@object, :name=>@object.Title} %>
+	</div>
+</div>

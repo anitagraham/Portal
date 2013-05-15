@@ -1,0 +1,34 @@
+<div id="editTabs" class="clearfix">
+	<ul>
+		<li>
+			<a href="#details">Details</a>
+		</li>
+		<li>
+			<a href="#tags">Tags</a>
+		</li>
+		
+	</ul>
+
+
+<div id="details">
+    <%= label :news_link, :Title, :Title,  :class=>"incontent" %>
+    <%= f.text_field :Title, {:size => 83, :class => 'title'} %>
+    <br />
+    <%= label :news_link, :pubdate, "Date Published (yyyy-mm-dd)", :class=>"incontent" %>
+    <%= f.text_field :pubdate, :value=>@object.pubdate||Date.today, :class=>"datePicker" %>
+    <br />
+    <%= label :news_link, :link, :Link, :class=>"incontent abovecontent" %>
+    <%= f.text_field :link, {:size =>83} %>
+    <%= link_to image_tag('new-window.png')+'View',@object.link, :target=>'_blank' %>
+    <br />
+    
+       <%= select :news_link, :news_source_id, 
+        NewsSource.find(:all).collect {|s| [ s.Name, s.id ] },
+        {:include_blank => true},
+      :class=>'dropdown' %>
+
+</div>
+<div id="tags"> 
+  <%= render :partial =>'shared/tagSet', :locals =>  {:object=>@object} %>
+</div>
+</div>

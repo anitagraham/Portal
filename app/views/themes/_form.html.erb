@@ -1,0 +1,14 @@
+  
+      <%= label :theme, :Title, :Title, :class=>"incontent" %>
+      <%= f.text_field :Title, :size => 50 %>
+      <%= label :theme, :name, :name, :class=>"incontent" %>
+      <%= f.text_field :name, :size=>20 %>
+  
+<fieldset>
+  <legend>
+    Tags
+  </legend>
+   <% @object.tags.each do |t| %>
+     <%= t.Title%><br />
+   <% end %>
+</fieldset>

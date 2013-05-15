@@ -1,0 +1,3 @@
+// user has changed, rerender user's row
+new_row = "<%=escape_javascript( render(:partial => 'user', :locals =>	{ user: @user})) %>"
+$("tr#User_<%=@user.id%>").replaceWith(new_row);

@@ -1,0 +1,29 @@
+<div id="editTabs" class="clearfix">
+  <ul>
+    <li>
+      <a href="#details">Details</a>
+    </li>
+    <li>
+      <a href="#tags">Tags</a>
+    </li>
+
+  </ul>
+
+<fieldset id="details">
+  <%= label :newsitem, :Title, :Title,  :class=>"incontent" %>
+  <%= f.text_field :Title, :value=>@object.Title, :size => 83, :class => 'title' %>
+  <br />
+  <%= label :newsitem, :pubdate, "Date Published (yyyy-mm-dd)", :class=>"incontent" %>
+  <%= f.text_field :pubdate, :value=>@object.pubdate||Date.today, :class=>"datePicker" %>
+  <br />
+  <%= label :newsitem, :Link, :Link, :class=>"incontent abovecontent" %>
+  <%= f.text_field :Link, :value=>@object.Link, :size =>83 %>
+  <%= link_to 'View',@object.Link, :target=>'_blank' %>
+  <br />
+  <%= label :newsitem, :Author, :Author, :class=>"incontent" %>
+  <%= f.text_field :Author, :value=>@object.Author %>
+</fieldset>
+<fieldset id="tags">
+  <%= render 'shared/tagSet', :object=>@object %>
+</fieldset>
+</div>

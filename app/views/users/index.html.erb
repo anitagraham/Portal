@@ -1,0 +1,25 @@
+<div class="index_page">
+	<%= content_tag :h1, "Ecohydrology Users", :class => 'ui-widget-header ui-corner-all'%>
+  <div  id="actions" class="clearfix">
+  	<%= render :partial => "shared/action", :locals => 
+  		{ :action => 'new', 
+  			:label => 'New', 
+  			:fmt => 'js'}
+		 %>
+  </div>
+
+	<table id="users" class="data_table">
+		<thead>
+			<tr>
+				<th>Edit</th>
+				<th>Change Status</th>
+				<% User::INDEX_FIELDS.each do |i| %>
+					<%= content_tag :th, i %>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<%= render :partial => "user", :collection => @users%>
+		</tbody>
+	</table>
+</div>

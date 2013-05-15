@@ -1,0 +1,2 @@
+Ecoport.openEditDialog('<%= params[:title]%>','<%= escape_javascript(render "shared/edit", :format=>:html, :layout=>"layouts/edit")%>');
+

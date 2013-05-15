@@ -1,0 +1,9 @@
+// user is now disabled. Replace form$disable with form$enable for this user
+$("form#disable_<%=@user.id%>").html("<%= escape_javascript( 
+		render(:partial => 'shared/action', 
+			:locals =>	{
+  	 	 	:action => "enable",
+  		 	:id => @user.id, 
+  			:title => "Enable #{@user.Name}",
+  			:method => 'put',
+  			:fmt => 'js'}) ) %>");

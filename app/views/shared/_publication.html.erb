@@ -1,0 +1,7 @@
+<div class="<%= publication.type%>">
+	
+  <% Publication::INDEX_FIELDS.each do |i| %>
+  	<%= content_tag :span, publication.send(i), :class=>i %>
+  <% end%>
+
+</div>

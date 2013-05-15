@@ -1,0 +1,5 @@
+// get data for synchronizing the news item list between the source (mysource) and the database
+var newslist_url = 'http://www.ecohydrology.uwa.edu.au/home/news/articles .item');
+$('<div />').attr('id','newslist').appendTo('#editDialog');
+$('#newslist').load(newslist_url);
+Ecoport.openEditDialog();

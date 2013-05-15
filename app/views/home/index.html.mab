@@ -1,0 +1,30 @@
+require 'markaby' 
+objects = %w(people projects publications news_items news_links news_sources tags themes)
+
+mab = Markaby::Builder.new
+mab.html do
+
+	div.ui-widget do
+	  h1.ui-widget-header "Ecohydrology Data Maintenance"
+		
+		div.flash.messages! do
+		end
+	
+	  div.tabs.#{Rails.env} do
+	    ul.indexTabs! do
+				objects.each do |o|
+	    		li link_to.o "#{o}.html", :title="index" o.Capitalize
+	    	end
+	  	end
+	 	end
+	
+		div.objectIndex do
+		end
+		
+		div.edit-Dialog.editDialog! do
+		end
+		
+	end
+	
+end
+puts mab.to_s

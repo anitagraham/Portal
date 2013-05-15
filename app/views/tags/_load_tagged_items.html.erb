@@ -1,0 +1,65 @@
+<!-- Show People button and  multiselect widget --> 
+<%= link_to "Edit People", 
+	{:action=>:load_people}, 
+	{:remote=>true, :id=>"People", :class => 'toggle ui-corner-all ui-priority-primary ui-state-default'}
+%>
+
+<%= link_to "Edit News Items", 
+	{:action=>:toggle}, 
+	{:remote=>true, :id=>"Newsitems", :class => 'toggle ui-corner-all ui-priority-primary ui-state-default'}
+%>
+
+<%= link_to "Edit News Links", 
+	{:action=>:toggle}, 
+	{:remote=>true, :id=>"Newslinks", :class => 'toggle ui-corner-all ui-priority-primary ui-state-default'}
+%>
+
+<%= link_to "Edit Projects", 
+	{:action=>:toggle}, 
+	{:remote=>true, :id=>"Projects", :class => 'toggle ui-corner-all ui-priority-primary ui-state-default'}
+%>
+<%= link_to "Edit Publications", 
+	{:action=>:toggle}, 
+	{:remote=>true, :id=>"Publications", :class => 'toggle ui-corner-all ui-priority-primary ui-state-default'}
+%>
+
+<!-- Show News Items button and  multiselect widget -->
+
+<div id="ts_Newsitems" class="multi hidden">
+  <%= f.collection_select(
+  	:news_item_ids,
+  	NewsItem.all, :id, :Name,
+  	{:selected=>@object.news_items.collect{|ni| ni.id}},
+    {:multiple=>true,:class=>'multiselect', :size=>20}) %>
+</div>
+
+<!-- Show Web Links button and  multiselect widget -->
+
+<div id="ts_Newslinks" class="multi hidden">
+  <%= f.collection_select(
+  	:news_link_ids,
+  	NewsLink.all, :id, :Name,
+  	{:selected=>@object.news_links.collect{|nl| nl.id}},
+    {:multiple=>true,:class=>'multiselect', :size=>20}) %>
+</div>
+
+<!-- Show Projects button and  multiselect widget -->
+
+<div id="ts_Projects" class="multi hidden">
+	<%= f.collection_select(
+		:project_ids,
+		Project.all, :id, :Name,
+		{:selected=>@object.projects.collect{|p| p.id}},
+    {:multiple=>true,:class=>'multiselect', :size=>20}) %>
+</div>
+
+
+<!-- Show Publications button and  multiselect widget -->
+
+<div id="ts_Publications" class="multi hidden">
+	<%= f.collection_select(
+		:publication_ids,
+		Publication.all, :id, :Title,
+		{:selected=>@object.publications.collect{|p| p.id}},
+    {:multiple=>true,:class=>'multiselect', :size=>20}) %>
+</div>

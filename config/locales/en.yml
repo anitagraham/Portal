@@ -1,0 +1,28 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Hello world"
+helpers:
+    label:
+      journal:
+        with: "Journal Name"
+        details: "Volume/pages"
+      Report:
+        with: "Client Name"
+        details: "Publisher/Holder"
+      Technical:
+        with: "Client Name"
+        details: "Publisher/Holder"
+      Conference:
+        with: "Conference Name"
+      Keynote:
+        with: "Conference Name"       
+      Chapter:
+        with: "Book Title"
+        details: "Publisher/ISBN"
+      Book:
+        with: "Book Title"
+        details: "Publisher/ISBN"
+
+

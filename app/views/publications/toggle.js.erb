@@ -1,0 +1,11 @@
+
+$('div#ts_People').toggleClass("hidden");
+var link=$('a#People');
+
+//switch the label and the ui-state
+label = $(link).text();
+$(link).toggleClass("ui-state-default ui-state-active");
+<!-- console.log (label); -->
+label = label.split(" ");
+label[0] = label[0]=="Show"? "Hide" : "Show";
+$(link).text(label.join(" "));

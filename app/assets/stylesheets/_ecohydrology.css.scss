@@ -1,0 +1,456 @@
+
+body {
+  margin: 0 auto;
+}
+.content {
+  background-color:#e6e6e6;
+  /*padding-left:10px;*/
+}
+.content .development {
+  background-color:#ff8000;}
+
+img.ui-icon {
+  border:none;
+  /* float:left;*/
+  display:inline-table !important;
+}
+.ui-jqgrid tr.jqgrow td {
+  white-space:nowrap !important;
+}
+ul#nav {
+  list-style-type:none;
+  display:table;
+  margin-bottom:20px;
+}
+ul#nav li {
+  display:table-cell;
+}
+ul#nav li a {
+  color:#e6e6e6;
+  font-size:1.5em;
+}
+
+a {
+  font-weight:bold;
+  text-decoration:none;
+}
+a, a:visited {
+  color:#0d2474;
+}
+.content {
+  margin:auto;
+}
+th, td {
+  padding:2px;
+}
+ul.actions li {
+  line-height:2em;
+}
+ul.actions li a {
+  font-size:1.5em;
+  padding-left: 10px;
+}
+ul.actions li span {
+  padding-left: 10px;
+}
+a.action {
+  font-size:1.5em;
+  color:#df321a;
+}
+a.action img {
+  float:none;
+  margin:0;
+}
+.left {
+  float:left;
+}
+td a {
+  font-weight: normal;
+  /* border-bottom: 1px dashed;*/
+  color: #1b86b7
+}
+/*  Form styling  */
+fieldset {
+  legend {
+    font-weight:bold
+  }
+
+  margin:10px;
+  // float:left;
+  .theme {
+    border:1px solid $blue;
+    float:left;
+    width:300px;
+  }
+}
+
+label {
+  padding: 5px;
+  margin-left: 3px;
+  color: #6e6e6e;
+  z-index: 1;
+  cursor: text;
+}
+label.select, label.textarea {  /* just for selectmenu labels */
+  float:left !important;
+  margin-left: 0 !important;
+  position: relative!important;
+}
+input, textarea, select {
+  z-index: 0;
+  /*  padding: 6px;*/
+  margin-left: 10px;
+  font: inherit;
+}
+input {
+  margin-bottom:10px;
+  height:2.2em;
+}
+/*input[type=button] {margin-top: 10px;}*/
+.legend {
+    h4, span {
+      display:inline;
+      padding:3px;
+    }
+    span.Book {background-color:$Book}
+    span.Journal {background-color:$Journal}
+    span.Conference {background-color:$Conference}
+    span.Report {background-color:$Report}
+}
+
+.close-window {
+  float:right;
+}
+.flash {
+  padding:10px;
+  position:absolute;
+  top:20px;
+  left:200px;
+  z-index:10;
+}
+.flash#close {
+  position:relative;
+  right:0;
+  top:0;
+}
+#footer {
+  margin-top: 20px;
+  text-align:center;
+  border: 1px solid #3fc;
+  background-color: #ccccff
+}
+.panel {
+  border: 1px dashed black;
+  height:200px;
+  margin-bottom: 20px;
+}
+.title {
+  font-weight:bold;
+}
+.actions a {
+  display:block;
+}
+/* Style for Jquery UI extra features */
+.nav-button {
+  outline: 0;
+  margin:0 4px 0 0;
+  padding: .4em 1em;
+  text-decoration:none !important;
+  cursor:pointer;
+  position: relative;
+  text-align: center;
+  zoom: 1;
+}
+.nav-button .ui-icon {
+  position: absolute;
+  top: 50%;
+  margin-top: -8px;
+  left: 50%;
+  margin-left: -8px;
+}
+a.nav-button {
+  float:left;
+}
+/* remove extra button width in IE */
+button.nav-button {
+  width:auto;
+  overflow:visible;
+}
+.nav-button-icon-left {
+  padding-left: 2.1em;
+}
+.nav-button-icon-right {
+  padding-right: 2.1em;
+}
+.nav-button-icon-left .ui-icon {
+  right: auto;
+  left: -1.2em;
+  margin-left: 0;
+}
+.nav-button-icon-right .ui-icon {
+  left: auto;
+  right: .2em;
+  margin-left: 0;
+}
+.nav-button-icon-solo {
+  display:block;
+  width:8px;
+  text-indent: -9999px;
+}	 /* solo icon buttons must have block properties for the text-indent to work */
+.nav-buttonset {
+  float:left;
+}
+.nav-buttonset .nav-button {
+  float: left;
+}
+.nav-buttonset-single .nav-button, .nav-buttonset-multi .nav-button {
+  margin-right: -1px;
+}
+.nav-toolbar {
+  padding: .5em;
+  margin: 0;
+  width:98%;
+}
+.nav-toolbar .nav-buttonset {
+  margin-right:1.5em;
+  padding-left: 1px;
+}
+form.button-to {
+  float:left;
+  padding:10px;
+  display:inline-block;
+}
+/*a.ui-selectmenu {float:left;}*/
+/*  from habari via a blog about labelling forms */
+
+form.actions a.ui-selectmenu {
+  display:inline-block;
+}
+label.abovecontent {
+  font-size: 9px;
+  line-height: 10px;
+  background: #d4d4d4;
+  // padding: 1px 10px 2px;
+  color: #444;
+  font-weight: normal;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  position: absolute;
+  margin-top: -13px;
+  margin-left: 10px;
+  z-index: 2;
+}
+label.overcontent {
+  font-weight: normal;
+  position: absolute;
+  width: auto;
+  cursor: text;
+  margin-left: 10px;
+  box-shadow: none;
+}
+.Profile {
+  width:650px;
+  padding-bottom: 20px;
+}
+.Profile p {
+  margin-left: 10px;
+}
+p:hover > label.abovecontent {
+  display: block;
+}
+.fieldWithErrors label {
+  background-color:red;
+}
+.fieldWithErrors {
+  border:1px dotted red;
+}
+#counter.safe {
+  background-color:green;
+  color:white;
+}
+#counter.over {
+  background-color:red;
+  color:white
+}
+th {
+  text-align:left;
+  font-weight:bold;
+  font-size:1.2em;
+  /*  background-color:#91c05e;*/
+  color:white;
+}
+td {
+  border-right: 1px dashed #fff;
+}
+.fg-button {
+  outline: 0;
+  margin:0 4px 0 0;
+  padding: .4em 1em;
+  text-decoration:none !important;
+  cursor:pointer;
+  position: relative;
+  text-align: center;
+  zoom: 1;
+}
+#top {
+  margin-bottom:10px;
+}
+#bottom {margin-top:10px}
+.index_page {
+  -moz-box-shadow: 10px 10px 5px #888;
+  -webkit-box-shadow: 10px 10px 5px #888;
+  box-shadow: 10px 10px 5px #888;
+}
+.development .index_page {
+  -moz-box-shadow: 10px 10px 5px #ff8000;
+  -webkit-box-shadow: 10px 10px 5px #ff8000;
+  box-shadow: 10px 10px 5px #ff8000;
+}
+
+
+#edit_dialog {
+  width:900px;
+}
+.ui-widget-overlay {
+  background:#000000 !important;
+  opacity:0.7 !important;
+}
+.multiselect {
+  width:500px;
+}
+.multi {  margin:20px 0;}
+.hidden {
+  position: absolute;
+  left: -9000px;
+}
+.staffLinks {
+  margin-top:20px;
+}
+.staffLinks a {
+  font-weight:normal;
+  text-decoration:underline;
+}
+fieldset.tagging {
+  p,span {
+    float:left;
+    margin:0;
+    padding:0
+  }
+  input[type="checkbox"] {
+    height:auto
+  }
+  input:checked {
+    &+ label {
+    font-weight:bold;
+    color: $blue
+    }}
+  label {
+    font-size:0.9em;
+  }
+}
+
+.edit_page {
+  width:820px;
+}
+.buttonForm form {
+  float:left;
+  a {top:7px;}
+}
+
+a.DeleteItem {
+  position:absolute;
+  right:15px;
+}
+.floatbox {
+  position: fixed;
+  margin-left:-150px;
+}
+
+.tabs .development {
+  border: 1px dashed #ff00ff;}
+h2.vertical {
+  padding:5px;
+  border: 1px dashed orange;
+  width: 150px;
+  height:30px;
+  position: fixed;
+  margin-left: -100px;
+  writing-mode:tb-rl;
+  -webkit-transform:rotate(90deg);
+  -moz-transform:rotate(90deg);
+  -o-transform: rotate(90deg);
+  white-space:nowrap;
+  display:block;
+}
+h2.development {
+  background:#ff8000;
+  color:white;
+  }
+h2.test {
+  background-color:#ec13b0;
+  color:white;}
+h2.production {display:none}
+td[title="J"] {color:$whitish;font-weight:bold;background-color:$Journal;}
+td[title="B"] {color:$whitish;font-weight:bold;background-color:$Book;}
+td[title="K"] {color:$whitish;font-weight:bold;background-color:$Keynote;}
+td[title="C"] {color:$whitish;font-weight:bold;background-color:$Conference;}
+td[title="R"] {color:$whitish;font-weight:bold;background-color:$Report;}
+td[title="T"] {color:$whitish;font-weight:bold;background-color:$Technical;}
+
+img.photo {float:left; border: 1px solid black; padding:5px;}
+#person_Profile {width:500px;}
+
+
+div#actions form {
+  display:inline;
+  input.button {
+    position:relative;
+    top:-10px;
+  }
+  }
+input[type=image] {
+  margin-bottom:0;
+}
+div#actions {
+  float: left;
+  margin-left: 400px;
+  position: relative;
+  top: -60px;
+  form.actions {
+    float:left;
+  }
+}
+
+a[href^="http:"]{
+  background: url(external-link.png) no-repeat right center;
+  padding-right: 1em;
+}
+
+.fs_blurb textarea {
+
+}
+
+table#people{ 
+  tr.Inactive {
+    td, p {color:$disabledColour}
+  }
+}
+
+table#users { 
+  tr.Disabled { // if the row action is enable, then the user is disabled
+    td, p {color:$disabledColour}
+  }
+}
+table#tags {
+  tr.Theme {
+    td {font-weight:bold}
+  }
+  tr.Orphan {
+    td {color:#888}
+  }
+  
+}
+.DTTT_container {
+  position:absolute;
+  left:10px;
+}

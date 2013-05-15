@@ -1,0 +1,49 @@
+<div class="index_page clearfix">
+  <%= content_tag :h1, "Ecohydrology Publications", :class => 'ui-widget-header ui-corner-all'%>
+
+  <div class="legend">
+  	<h4>Key:</h4>
+  	<% Publication.subclasses.each do |sc| %>
+  		<%= content_tag :span, sc, :class => sc %>
+  	<%end%>
+  </div>
+
+  <div  id="actions" class="clearfix">
+  	<%= render :partial => "shared/action", :locals => 
+  		{ :action => 'new', 
+  			:label => 'New', 
+  			:title => "Create New Publication",
+  			:fmt => 'js',
+  			:select_fields => ['type'], 
+  			:select_from =>[Publication::select_options] } %>
+  	<%= 
+  	# render :partial => "shared/action", :locals => 
+  		# { :action => 'export', 
+  			# :label=> 'Export', 
+  			# :title => "Export Publications",
+  			# :fmt => 'xml',
+  			# :select_fields => ['type'], 
+  			# :select_from => [Publication::select_options.unshift("All")]} 
+  			%>
+  </div>
+	  
+
+	<table id="publications" class="data_table">
+		<thead>
+			<tr>
+				<th>Edit</th>
+				<th>Delete</th>
+
+				<% Publication::INDEX_FIELDS.each do |i| %>
+					<%= content_tag :th, i %>
+				<% end %>
+
+			</tr>
+		</thead>
+		<tbody>
+			<%= render :partial => "publication", :collection => @publications%>
+		</tbody>
+	</table>
+</div>
+
+ 

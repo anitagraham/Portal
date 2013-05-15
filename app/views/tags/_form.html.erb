@@ -1,0 +1,61 @@
+<div id="editTabs" class="clearfix">
+	<ul>
+		<li>
+			<a href="#tag">Tag properties</a>
+		</li>
+		<% Tag::TAGGED_OBJECTS.each do |o| %>
+		<li>
+			<a href="#<%=o.delete(' ')%>"><%=o %></a>
+		</li>
+		<% end%>
+	</ul>
+
+<div id="tag">
+	<%= label :object,  :theme, :theme %>
+	<%= f.check_box :theme %>
+
+	<p>
+		<%= label :object, :Title, :Title, :class=>"incontent" %>
+		<%= f.text_field :Title, :size => 50 %>
+	</p>
+
+	<p>
+		<%= label :object, :name, :name, :class=>"incontent" %>
+		<%= f.text_field :name, :size=>20 %>
+	</p>
+
+	<% if @object.theme %>
+		<h2>Select Sub-themes</h2>
+		  <%= f.collection_select(
+	 			:subtheme_ids,
+	      Tag.all,
+	      :id, :Title,
+	      {:selected=>@object.subtheme_ids},
+	      {:multiple=>true,:class=>'multiselect', :size=>20}) 
+	    %>
+	<% else %>
+		<h2>Select Theme</h2>
+		<%= f.select :theme_id, Tag.themes.collect {|t| [ t.Title, t.id ] } %>	
+	<% end %>
+
+</div>
+
+<!--  -->
+<% Tag::TAGGED_OBJECTS.each do |o| %>
+	<div id="<%=o.delete(' ')%>" class="clearfix">
+			<% 
+				className = o.classify.constantize
+				class_ids = "#{className}_ids".downcase.to_sym
+				fk = o.foreign_key.pluralize 
+				associated = @object.send(o.downcase)
+			%>
+		  <%= f.collection_select(
+	 			class_ids,
+	      className.all,
+	      :id, :Name,
+	      {:selected=>associated.collect{|p| p.id}},
+	      {:multiple=>true,:class=>'multiselect', :size=>20}) 
+	    %>
+	</div>
+<% end%>
+</div>

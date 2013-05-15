@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <title>Ecoport - Ecohydrology Portal</title>
+				<%= favicon_link_tag 'ecoport-icon.png' %>
+				<%= stylesheet_link_tag 'application', :media => 'screen, projection' %>
+				<%= stylesheet_link_tag 'print', :media => 'print' %>
+  			<!--[if IE]><%= stylesheet_link_tag 'ie.css', :media => 'screen, projection' %><![endif]-->
+
+        <%= javascript_include_tag	'application' %>
+        <%= csrf_meta_tag %>
+        <%= yield :head %>
+
+    </head>
+    <body>
+			<% if current_user %>
+				<div id="user_nav">
+				  <span> Logged in as <%= current_user.Name %>
+				    <%= link_to "Log out", log_out_path %> 
+				  </span>	
+				</div>
+			<%end%>
+
+      <div class="<%=Rails.env%> content container_12 ui-widget">
+          <%= render :partial => 'shared/header' %>
+          <%= yield %>
+          <%= render :partial=> 'shared/footer' %>
+      </div>
+    </body>
+</html>

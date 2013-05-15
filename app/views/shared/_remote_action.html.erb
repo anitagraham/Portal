@@ -1,0 +1,21 @@
+<!--set up the defaults  An ACTION parameter is required-->
+<% id = "" if local_assigns[:id].nil? %>
+<% label = action.titleize if local_assigns[:label].nil? %>
+
+<%= form_tag({:action => action,  :id=>id},  
+		:method=>"get",	:remote => true,	:class=>:actions,	:id => "#{label}_#{id}", :format=>:html)  do %>
+<%    if local_assigns.has_key? :title %>
+<%=     hidden_field_tag :title, title %>	
+<%    end%>
+<%=		image_submit_tag "blank.png", :alt=>label,  :title => label, :class=> label %>
+<%		if local_assigns.has_key? :select_fields
+				select_fields.each_with_index do |sf, ix|
+%>
+<%=				select 	:filter, 
+					:'sf', 
+					select_from[ix],	
+					{:include_blank => false},
+					:class=>'dropdown' %>
+<%			end
+			end 
+  end %>
