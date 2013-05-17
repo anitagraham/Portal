@@ -35,7 +35,7 @@
 	    %>
 	<% else %>
 		<h2>Select Theme</h2>
-		<%= f.select :theme_id, Tag.themes.collect {|t| [ t.Title, t.id ] } %>	
+		<%= f.select :theme_id, Tag.themes.collect {|t| [ t.Title, t.id ] }, :include_blank => true %>	
 	<% end %>
 
 </div>

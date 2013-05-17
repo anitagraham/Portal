@@ -1,0 +1,5 @@
+// Close the edit dialog
+if ($('div#editDialog').dialog('isOpen')) {$('div#editDialog').empty().dialog('close');}
+// new tag, rewrite index page
+new_row = "<%=escape_javascript( render(:partial => 'tag', :locals =>	{ tag: @tag})) %>"
+Ecoport.addRow(new_row)

@@ -1,0 +1,10 @@
+// generic - takes any object
+// Close the edit dialog
+if ($('div#editDialog').dialog('isOpen')) {$('div#editDialog').empty().dialog('close');}
+
+// object has changed, rerender object's row
+new_row = "<%=escape_javascript( render(:partial => 'object', :locals =>	{ object: @object})) %>"
+$("tr#object_<%=@object.id%>").replaceWith(new_row);
+
+// needs some js love
+Ecoport.initIndexPage();

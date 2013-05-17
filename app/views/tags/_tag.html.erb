@@ -1,4 +1,4 @@
-<tr class=<%= tag.status %>>
+<tr class=<%= tag.status %> id = "objId_<%=tag.id%>">
 
 	<td>
   	<%= render :partial => "shared/action",
@@ -10,7 +10,7 @@
   			:fmt => 'js'}
 		 %>
 	</td>
-  <td><%= link_to image_tag("delete-item.png"), { :action => "destroy", :id => tag.id },
+  <td><%= link_to image_tag("delete-item.png"), { :action => "destroy", :id => tag.id, :format => 'js', :remote => true },
           :data => { :confirm => 'Are you sure?' }, :method => :delete, :class=> :delete %> </td>
           
   <% Tag::INDEX_FIELDS.each do |i| %>

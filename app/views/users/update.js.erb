@@ -1,3 +1,8 @@
-// user has changed, rerender user's row
-new_row = "<%=escape_javascript( render(:partial => 'user', :locals =>	{ user: @user})) %>"
-$("tr#User_<%=@user.id%>").replaceWith(new_row);
+// Close the edit dialog
+if ($('div#editDialog').dialog('isOpen')) {$('div#editDialog').empty().dialog('close');}
+
+// rerender user's row
+$("tr#objId_<%=@user.id%>").replaceWith("<%=escape_javascript( render(:partial => 'user', :locals =>	{ user: @user})) %>");
+
+// needs some Ecoport love
+Ecoport.initIndexPage();

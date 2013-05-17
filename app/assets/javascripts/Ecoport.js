@@ -2,6 +2,7 @@ var Ecoport = window.Ecoport || {};
 
 var Ecoport = (function() {
 	var currentObj;
+	var currentTable;	
 	// the type of objects we are currently viewing or editing
 	var editDialog;
 	// Initialise datepicker regional defaults
@@ -328,12 +329,16 @@ var Ecoport = (function() {
 		if (dTTypeOptions[current].length) {
 			currentOptions['aaSorting'] = dTTypeOptions[current]['aaSorting'];
 		}
-
-		var table = "table#" + current + ".data_table";
-		$(table).dataTable(currentOptions);
+		currentTable = $("table#" + current + ".data_table").dataTable(currentOptions);
 
 	}
-
+	function addRow (data) {
+		currentTable.fnAddData(data)
+	}
+	
+	function removeRow( id) {
+		currentTable.fnDeleteRow($(id)[0], null, true)
+	}
 	/*
 	 * Call all the initializations
 	 * ==================================================
@@ -353,6 +358,9 @@ var Ecoport = (function() {
 	return {
 		init : init,
 		openEditDialog : initEditPage,
+		initIndexPage : initIndexPage, 
+		addRow : addRow,
+		removeRow : removeRow, 
 		loginInit: loginInit
 	}
 })();

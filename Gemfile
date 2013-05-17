@@ -23,7 +23,6 @@ group :assets do
   gem 'uglifier'
   gem 'compass-rails'
   gem 'compass-960-plugin', require: 'ninesixty'
-  gem 'foundation-icons-sass-rails'
 end
 	gem 'jquery-ui-rails', '2.0.2'
 

@@ -24,9 +24,6 @@ class UsersController < AuthenticatedController
   def update
     @user = User.find(params[:id])
     flash[:notice] = @user.Name + ' updated.' if @user.update_attributes(params[:user])              
-    respond_with(@user) do |format|
-  	  format.js {render :template=>'shared/close', :content_type=>'text/javascript', :formats=>[:js]}
-    end
   end #update    
     
   def disable

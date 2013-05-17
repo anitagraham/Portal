@@ -122,16 +122,25 @@ input {
   float:right;
 }
 .flash {
-  padding:10px;
+  margin:0 20px;
+  font:12px/1.5 $headerFont;
+  color:white;
+  background: #0073ea;
+  border: 2px solid #eee;
+  height: 20px;
+  padding: 7px;
+  display: inline-block;
+  border-radius:15px;
   position:absolute;
-  top:20px;
-  left:200px;
-  z-index:10;
-}
-.flash#close {
-  position:relative;
-  right:0;
   top:0;
+  right:200px;
+  z-index:10;
+  #close {
+    position:relative;
+    right:0;
+    top:0;
+}
+
 }
 #footer {
   margin-top: 20px;

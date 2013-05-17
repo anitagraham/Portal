@@ -17,24 +17,6 @@ class TagsController < AuthenticatedController
 			@tags = Tag.all
     end
 
-    def export
-      if params[:id]    #is this a single tag export
-#     export uses the cssclass not the numerical id
-        @tags = Tag.where("name = ?", params[:id]).includes([:people, :publications])
-      else
-        @tags = Tag.all
-        respond_to do |format|
-          format.xml {
-            @temp_file = Tempfile.new("xmltaglist", "#{Rails.root}/tmp")
-            render  #export.xml.builder
-            send_file(@temp_file.path, :filename => "TagList.xml", :type => "text/xml")
-          }
-          format.json render :json =>@tags
-        end
-      end
- 
-    end
-
     def toggle     
       @tag = Tag.find(params[:id])
       respond_with(@tag)
@@ -48,19 +30,13 @@ class TagsController < AuthenticatedController
     end
 
     def create
-      @object = Tag.new(params[:tag])
-      flash[:notice] = @object.Title + ' was successfully created.' if @object.save
-      respond_with(@object) do |format|
-        format.js {render :template=>'shared/close.js', :content_type=>'text/javascript'}
-      end
+      @tag = Tag.new(params[:tag])
+      flash[:notice] = @tag.Title + ' was successfully created.' if @tag.save
     end
 
     def update
       @tag = Tag.find(params[:id])
       flash[:notice] = @tag.Title + ' was successfully updated.' if @tag.update_attributes(params[:tag])
-       respond_with(@tag) do |format|
-        format.js {render :template=>'shared/close', :format=>:js, :content_type=>'text/javascript'}
-      end      
    end
 
     # DELETE /tags/1
@@ -69,7 +45,9 @@ class TagsController < AuthenticatedController
     @object = Tag.find(params[:id])
     title = @object.Title
     @object.destroy
-    redirect_to "/", :notice => "Successfully deleted tag #{title}."
+    flash[:notice] = "Successfully deleted #{title}."
+    # redirect_to "/", :notice => "Successfully deleted tag #{title}."
+    render template: 'shared/delete', formats: ['js'], content_type: 'text/javascript'
   end
 end
 

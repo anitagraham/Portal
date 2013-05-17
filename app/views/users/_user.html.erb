@@ -2,9 +2,10 @@
 	status = user.disabled ? "Disabled" : "Enabled"
 	action = user.disabled ? "enable" : "disable"
 %>
-<tr class="<%=status%>" id = "User_<%=user.id%>">
+
+<tr class="<%=status%>" id = "objId_<%=user.id%>">
 	<td>
-  	<%= render :partial => "shared/action_font",
+  	<%= render :partial => "shared/action",
   	 :locals =>	{
   	 	 	:action => 'edit',
   		 	:id => user.id, 
@@ -14,7 +15,7 @@
 	</td>  
 	<td>
 		
-  	<%= render :partial => "shared/action_font",
+  	<%= render :partial => "shared/action",
   	 :locals =>	{
   	 	 	:action => action,
   		 	:id => user.id, 
