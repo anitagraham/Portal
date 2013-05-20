@@ -122,13 +122,14 @@ input {
   float:right;
 }
 .flash {
+  @extend .ui-state-highlight;
   margin:0 20px;
   font:12px/1.5 $headerFont;
-  color:white;
-  background: #0073ea;
-  border: 2px solid #eee;
-  height: 20px;
-  padding: 7px;
+  // color:white;
+  // background: #0073ea;
+  // border: 2px solid #eee;
+  // height: 20px;
+  // padding: 7px;
   display: inline-block;
   border-radius:15px;
   position:absolute;

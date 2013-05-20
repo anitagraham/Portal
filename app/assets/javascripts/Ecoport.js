@@ -269,6 +269,7 @@ var Ecoport = (function() {
 			"menuWidth" : "300",
 			"width" : "200"
 		});
+		$('.flash').fadeOut(10000); 
 	};
 
 	function initIndexPage() {
@@ -333,7 +334,17 @@ var Ecoport = (function() {
 
 	}
 	function addRow (data) {
-		currentTable.fnAddData(data)
+		currentTable.fnAddTr($(data)[0], true);
+	}
+	
+	function updateRow (id, data) {
+		var nTds = $(data)[0].getElementsByTagName('td');
+    var aData = [];
+    for ( var i=0 ; i<nTds.length ; i++ )
+    {
+        aData.push( nTds[i].innerHTML );
+    }
+		currentTable.fnUpdate(aData, $(id)[0])
 	}
 	
 	function removeRow( id) {
@@ -360,6 +371,7 @@ var Ecoport = (function() {
 		openEditDialog : initEditPage,
 		initIndexPage : initIndexPage, 
 		addRow : addRow,
+		updateRow : updateRow,
 		removeRow : removeRow, 
 		loginInit: loginInit
 	}

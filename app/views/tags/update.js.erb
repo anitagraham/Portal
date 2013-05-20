@@ -1,7 +1,5 @@
 // Close the edit dialog
 if ($('div#editDialog').dialog('isOpen')) {$('div#editDialog').empty().dialog('close');}
 // tag has changed, rerender tag's row
-new_row = "<%=escape_javascript( render(:partial => 'tag', :locals =>	{ tag: @tag})) %>"
-$("tr#objId_<%=@tag.id%>").replaceWith(new_row);
-// needs some js action
-Ecoport.initIndexPage();
+var new_row = "<%=escape_javascript( render(:partial => 'tag', :locals =>	{ tag: @tag})) %>";
+Ecoport.updateRow("#objId_<%=@tag.id%>", new_row);

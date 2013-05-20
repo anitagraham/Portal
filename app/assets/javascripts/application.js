@@ -5,6 +5,7 @@
 //= require_tree ./jquery.ui.plugins
 //= require_tree ./markitup
 //= require ./dataTables/jquery.dataTables
+//= require ./dataTables/dataTables.fnAddTr
 //= require ./dataTables/TableTools
 //= require ./dataTables/ZeroClipboard
 //= require Ecoport.js

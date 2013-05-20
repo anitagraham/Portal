@@ -1,0 +1,5 @@
+// Close the edit dialog
+if ($('div#editDialog').dialog('isOpen')) {$('div#editDialog').empty().dialog('close');}
+// new person, tell dataTables to add a row
+new_row = "<%=escape_javascript( render(:partial => 'person', :locals =>	{ person: @person})) %>"
+Ecoport.addRow(new_row)

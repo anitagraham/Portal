@@ -1,26 +1,14 @@
-<% 
-   # roles_select = ['All'].concat(Person::ROLES)
-   # statuses_select = ['All'].concat(Person::STATUSES)
-%> 
-
 <div class="index_page">
 	<%= content_tag :h1, "Ecohydrology People", :class => 'ui-widget-header ui-corner-all'%>
+	
   <div  id="actions" class="clearfix">
-  	<%= 
-  	render :partial => "shared/action", :locals => 
+
+  	<%= render :partial => "shared/action", :locals => 
   		{ :action => "new", 
   			:label => 'New', 
   			:title => 'Create New Person',
   			:fmt => 'js'}
 		 %>
-  	<%= #render :partial => "shared/action", :locals => 
-  		#{ :action => "export", 
-  		#	:label=> 'Export', 
-  		#	:title => 'Export People',
-  		#	:fmt => 'xml',
-  		#	:select_fields => ['Role','Status'], 
-  		#	:select_from => [roles_select, statuses_select ]} 
-  			%>
 
   </div>
 

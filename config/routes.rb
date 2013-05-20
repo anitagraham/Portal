@@ -3,8 +3,7 @@ Portal::Application.routes.draw do
 
   match "/media/:dragonfly/:file_name", :to => Dragonfly[:images]  
 
-  get "/people/new" => "people#edit", :as => :new_person_path
-    
+  get "/people/new" => "people#edit", :as => :new_person_path   
   resources :people, :id => /[\w\.\-]*?/, :format => /json|html|xml|js|png|jpg|/ do
   	resources :tags
  	end

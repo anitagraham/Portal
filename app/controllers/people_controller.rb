@@ -35,39 +35,6 @@ class PeopleController < AuthenticatedController
     end
   end
 
-  # def export
-# 
-    # if params[:id]    #is this a single person export (name sent as id in format firstname.surname)
-    	# # Where there is a hyphenated name the hyphen has been substituted with an underscore (ed.barrett-lennard)
-    	# # Where a name has a space (eg Chun Woo Baek) the space has been substituted with a period  (chun.woo.baek)
-    	# subs = {"_" => "-", "." => " "}
-      # fullname = params[:id].gsub(/_|\./) {|match| subs[match]}
-      # @people = Person.named(fullname)
-# 
-    # elsif params[:tag]
-      # # export people with a particular tag 
-      # @people = Person.where("tags.css_class = ?", params[:tag])
-      # fn = params[:tag]
-    # else
-      # # export all active people
-      # @people = Person.where("Status='Active'")
-      # fn = "staffList"
-    # end
-# 
-    # respond_with @people do |format|
-      # format.xml {
-      	# now = Time.now.strftime("%d%m%Y%H%M").to_s
- 	    	# @fileNames = "#{Rails.root}/downloads/#{fn}-#{now}"
-       	# render  #export.xml.builder
-        # send_file(@fileNames+".zip", :type=>"application/zip", :disposition=>"attachment")
-      # }
-      # format.json {
-      	# render :json =>  {list: @people},	:callback => params[:callback]
-      # }
-    # end
-  # end
-
- 
   # GET /people/1
   # GET /people/1.xml
   # GET /people/1,json
@@ -85,28 +52,24 @@ class PeopleController < AuthenticatedController
   # POST /people
   # POST /people.xml
   def create
-    @object = Person.new(params[:person])
-    flash[:notice] =  @object.Name +  ' created.' if @object.save
-    render :template=>'shared/close', :format=> :js, :content_type=>'text/javascript'   
+    @person = Person.new(params[:person])
+    flash[:notice] =  @person.Name +  ' created.' if @person.save
   end
 
   # PUT /people/1
   # PUT /people/1.xml
   def update
-    @object = Person.find(params[:id])
-    flash[:notice] = @object.Name + " updated." if @object.update_attributes(params[:person])
-	  render :template=>'shared/close', :format=> :js, :content_type=>'text/javascript' 
+    @person = Person.find(params[:id])
+    flash[:notice] = @person.Name + " updated." if @person.update_attributes(params[:person])
   end
 
   # DELETE /people/1
   # DELETE /people/1.xml
   def destroy
-    @person = Person.find(params[:id])
-    if @person.destroy
-	    flash[:notice] = "Successfully deleted #{@person.Name}."
-	    redirect_to '/'
-    end
-
+    @object = Person.find(params[:id])
+    name = @object.Name
+    flash[:notice] = "#{name} deleted" if @object.destroy
+    render template: 'shared/delete', formats: ['js'], content_type: 'text/javascript'
   end
 
 end

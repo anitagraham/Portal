@@ -1,0 +1,5 @@
+// Close the edit dialog
+if ($('div#editDialog').dialog('isOpen')) {$('div#editDialog').empty().dialog('close');}
+// Person has changed, rerender their row
+var new_row = "<%=escape_javascript( render(:partial => 'person', :locals =>	{ person: @person})) %>";
+Ecoport.updateRow("#objId_<%=@person.id%>", new_row);
